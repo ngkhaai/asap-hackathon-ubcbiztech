@@ -1,26 +1,40 @@
-# ASAPproductplus
+https://asapproductplus.lovable.app
 
-@asset:da_01m5sscd91ep38han2dq7a8dm2:"Screens"  this is our prototype, i see it mostly , i just need an improvement
+**ASAP: "Right need. Right time."**
 
-This project was built with [Lovable](https://lovable.dev).
+UBC BizTech case question: How might SAP help retailers close the gap between demand shifts and the business's response?
 
-**Live app**: https://asapproductplus.lovable.app
+**Summary**
 
-## Build with Lovable
+ASAP is a mobile app built on SAP. When a hot item runs out at one store, the store team gets the right stock fast:
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2e958181-f648-409f-b815-5edd081ecebe).
+FLAG: any salesperson scans the empty size on their phone.
+PICK: the store manager sees options ranked by fastest arrival and most profit: transfer from a nearby store, warehouse restock, or "save the sale" (ship to the customer).
+APPROVE: the regional allocator approves. The stock transfer is created in SAP S/4HANA, and the sending store picks it with SAP's existing Transfer Products app.
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+Case company: Arc'teryx (Amer Sports), reported to run SAP S/4HANA and to operate about 75 stores in North America (see note in section 6). Hypothetical personas: Tom (a shopper who loses his size), store staff and manager, Daniel (regional allocator).
 
-## Development
+**How it works**
+Step	Who	What happens
+Flag	Any salesperson	Scans the empty size; stock is read live from S/4HANA
+Pick	Store manager	Sees ranked options (fastest arrival, most profit) with units, ETA, cost, and risk to the sending store
+Approve	Regional allocator	One tap creates the transfer in S/4HANA; the sending store picks it in SAP's Transfer Products app
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Delivery options: same-day courier (e.g. Uber Direct, about 10 mi in Vancouver), next scheduled truck, staff walk-over, or ship to the customer. Payments ("save the sale"): integrate an existing mobile POS (Tap to Pay on iPhone, Canada 2024); we do not build our own.
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+*Why mobile?*
+
+We see stock gaps on the floor. SAP's phone apps (Look Up Retail Products, Transfer Products) show nearby-store stock and move it, but do not rank options or route approval. No new hardware is needed. Trade-off: Walmart moved from staff using their own phones (2018) to issuing 740K+ company phones (2021), so ASAP supports both.
+
+*Why these users?*
+
+Salespeople see the gap first, managers know the store, and allocators own transfers. Each person does the step they are closest to.
+
+**Market map**
+Product	| What it does |	Gap
+SAP IBP / Retail Intelligence	| Forecasts |	No store action
+SAP store apps	| See and move stock |	No ranking, no approval chain
+Nextail Store Requests (closest rival)	| Staff request a size on mobile; head office approves |	Warehouse only, next replenishment cycle, not built on SAP
+
+*Positioning: ASAP is the missing connection between them. We do not claim new forecasting.*
+
