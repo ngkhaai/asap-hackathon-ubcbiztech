@@ -70,14 +70,14 @@ export const getOption = (id: OptionId) => OPTIONS.find((o) => o.id === id)!;
 
 export function nextScreen(s: Screen): Screen {
   const i = FLOW.indexOf(s);
-  if (i < 0) return FLOW[0];
-  return FLOW[Math.min(i + 1, FLOW.length - 1)];
+  if (i < 0) return FLOW[0]!;
+  return FLOW[Math.min(i + 1, FLOW.length - 1)]!;
 }
 
 export function prevScreen(s: Screen): Screen {
   const i = FLOW.indexOf(s);
-  if (i <= 0) return FLOW[0];
-  return FLOW[i - 1];
+  if (i <= 0) return FLOW[0]!;
+  return FLOW[i - 1]!;
 }
 
 export const requestLabel = (id: OptionId) => `Request option ${id}`;
