@@ -243,7 +243,7 @@ function ScanFlag({ go }: { go: (s: Screen) => void }) {
         <RolePill role="Salesperson" />
       </div>
       <Title>Flag low stock</Title>
-      <div className="relative flex h-48 items-center justify-center overflow-hidden rounded-3xl bg-brand">
+      <div className="relative flex h-52 items-center justify-center overflow-hidden rounded-3xl bg-brand pb-8">
         <div className="relative flex h-32 w-32 items-center justify-center rounded-3xl border-2 border-primary-foreground/80 bg-primary-foreground/10">
           {state === "scanning" && <div className="animate-scanline absolute inset-x-2 h-0.5 bg-primary-foreground" />}
           {state === "found" ? <Check className="h-14 w-14 text-primary-foreground" /> : <ScanLine className="h-10 w-10 text-primary-foreground/80" />}
