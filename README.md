@@ -1,6 +1,6 @@
 https://asapproductplus.lovable.app
 
-# ASAP: "Right need. Right time."
+# ASAP: "Right need. Right now."
 
 UBC BizTech case question: How might SAP help retailers close the gap between demand shifts and the business's response?
 
